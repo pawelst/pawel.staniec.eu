@@ -1,21 +1,38 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<style>
 
-<!-- list of posts from new to old -->
-{{ range .Pages.Reverse }}
-<article>
-    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-    <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
-    <!-- <p>{{ .Summary }}</p> -->
-    <a href="{{ .Permalink }}" class="read-more">Read more →</a>
-    {{ if .Params.tags }}
-    <div class="tags">
-        <strong>Tags:</strong>
-        {{ range .Params.tags }}
-        <span>{{ . }}</span>
+</style>
+
+<div class="posts-header">
+    <h1>{{ .Title }}</h1>
+    <p>Thoughts on software engineering, technology, and leadership</p>
+</div>
+
+<div class="posts-grid">
+    {{ range .Pages.Reverse }}
+    <article class="post-card">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
+        
+        <!-- {{ if .Params.preview }}
+        <div class="post-preview">{{ .Params.preview }}</div>
+        {{ else if .Summary }}
+        <div class="post-preview">{{ .Summary }}</div>
+        {{ else }}
+        <div class="post-preview">Click to read this post...</div>
+        {{ end }} -->
+        
+        <a href="{{ .Permalink }}" class="read-more">Read more →</a>
+        
+        {{ if .Params.tags }}
+        <div class="tags">
+            <strong>Tags:</strong>
+            {{ range .Params.tags }}
+            <span>{{ . }}</span>
+            {{ end }}
+        </div>
         {{ end }}
-    </div>
+    </article>
     {{ end }}
-</article>
-{{ end }}
+</div>
 {{ end }}

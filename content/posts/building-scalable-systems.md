@@ -3,10 +3,8 @@ title: "Building Scalable Systems: Lessons from 15+ Years"
 date: "2025-01-07"
 draft: false
 tags: ["hugo", "blog"]
-preview: "Over the past decade and a half, I've had the privilege of designing, developing, and securing global-scale systems. Here are some key insights I've gathered along the way."
----
 
-# Building Scalable Systems: Lessons from 15+ Years
+---
 
 Over the past decade and a half, I've had the privilege of designing, developing, and securing global-scale systems. Here are some key insights I've gathered along the way.
 
@@ -92,7 +90,3 @@ The landscape continues to evolve rapidly. Current trends I'm watching:
 Building scalable systems is as much art as science. Every system is unique, every team is different, and every problem requires its own solution.
 
 The key is to stay curious, keep learning, and never stop questioning your assumptions.
-
----
-
-*What's been your experience with scaling systems? I'd love to hear your thoughts and war stories!*

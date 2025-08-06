@@ -5,8 +5,6 @@ draft: false
 tags: ["hugo", "blog"]
 ---
 
-# Welcome to My Blog
-
 Hello there! 👋
 
 I'm excited to launch this blog as a space to share my thoughts on software engineering, technology leadership, and the lessons I've learned throughout my career.
