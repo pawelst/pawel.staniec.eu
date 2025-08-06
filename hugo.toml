@@ -3,8 +3,8 @@ languageCode = 'en-us'
 title = 'Paweł Staniec'
 
 [params]
-description = 'A custom Hugo site built from scratch'
-author = 'Your Name'
+description = 'Personal site'
+author = 'Paweł Staniec'
 
 [menu]
   [[menu.main]]

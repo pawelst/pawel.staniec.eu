@@ -1,31 +1,36 @@
 ---
 title: "Building Scalable Systems: Lessons from 15+ Years"
-date: "2025-01-07"
+date: "2025-08-01"
 draft: false
-tags: ["hugo", "blog"]
+tags: ["thoughts","advice","blog"]
 
 ---
+
+
+_This article is a work in progress_
+
+
 
 Over the past decade and a half, I've had the privilege of designing, developing, and securing global-scale systems. Here are some key insights I've gathered along the way.
 
 ## The Foundation: Start Simple, Scale Smart
 
-> "Premature optimization is the root of all evil." - Donald Knuth
+> _"Premature optimization is the root of all evil." - Donald Knuth_
 
-One of the biggest mistakes I see engineers make is over-engineering from day one. Start with the simplest solution that works, then scale based on **actual** needs, not hypothetical ones.
+One of the biggest mistakes I ~~kept~~ keep making and see other engineers make is over-engineering from day one. Start with the simplest solution that works, then scale based on **actual** needs, not hypothetical ones.
 
-### Key Principles I Follow:
+### Key Principles I Learned to Follow:
 
 1. **Measure First**: You can't optimize what you don't measure
 2. **Bottlenecks Are Your Friends**: They tell you exactly where to focus
 3. **Horizontal > Vertical**: Scale out, not just up
 4. **Fail Fast, Fail Safe**: Design for failure from the beginning
 
-## Architecture Patterns That Work
+## Architecture Patterns That Worked For Me (or at least didn't kill me)
 
 ### Microservices (When Done Right)
 
-Microservices aren't a silver bullet, but when implemented correctly:
+You almost never need microservices, but when you think you do, think twice. Then, if you still think you need them, remember that they aren't a silver bullet, but when implemented correctly:
 
 ```javascript
 // Example: Simple service discovery pattern
@@ -68,13 +73,13 @@ Technical architecture is only half the battle. The other half is:
 
 1. **The Distributed Monolith**: Splitting code without splitting data
 2. **Cargo Cult Architecture**: Copying patterns without understanding context  
-3. **The Silver Bullet Syndrome**: Believing one technology solves everything
+3. **The Silver Bullet Syndrome**: Believing one technology solves everything (not even Java, sorry)
 
 ## Tools That Have Served Me Well
 
 - **Monitoring**: Prometheus + Grafana for metrics, ELK stack for logs
 - **Deployment**: Containerization with Docker, orchestration with Kubernetes
-- **Databases**: PostgreSQL for ACID, Redis for caching, MongoDB for documents
+- **Databases**: SQLite for a start, then if you need: PostgreSQL for ACID, Redis for caching, MongoDB for documents.
 - **Message Queues**: RabbitMQ for reliability, Kafka for high throughput
 
 ## Looking Forward
@@ -87,6 +92,4 @@ The landscape continues to evolve rapidly. Current trends I'm watching:
 
 ## Final Thoughts
 
-Building scalable systems is as much art as science. Every system is unique, every team is different, and every problem requires its own solution.
-
-The key is to stay curious, keep learning, and never stop questioning your assumptions.
+Building scalable systems is as much art as science. Every system is unique, every team is different, and every problem requires its own solution. The key is to stay curious, keep learning, and never stop questioning your assumptions.

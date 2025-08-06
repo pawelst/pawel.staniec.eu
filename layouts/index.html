@@ -6,22 +6,46 @@
         {{ .Site.Params.description }}</p>
     <div class="social">
         <a href="https://github.com/pawelst" aria-label="GitHub" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://linkedin.com/in/pawelstaniec" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
     </div>
 </section>
-<section id="about">
+
+<!-- Latest blog article preview -->
+<section id="latest-blog-post">
+    {{ range first 1 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+    <div class="latest-post">
+        <h2>Latest from the Blog</h2>
+        <article class="post-preview">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <div class="post-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            </div>
+            <div class="post-summary">
+                {{ if .Summary }}
+                    {{ .Summary | plainify | truncate 200 }}
+                {{ else }}
+                    {{ .Content | plainify | truncate 200 }}
+                {{ end }}
+            </div>
+            <a href="{{ .RelPermalink }}" class="read-more">Read more →</a>
+        </article>
+    </div>
+    {{ end }}
+</section>
+    
+<!-- <section id="about">
     <h2>About Me</h2>
     <p>Application Engineer turned Chief Technology Officer, SCRUM Certified Master, and software architect with 15+
         years of experience designing, developing, and securing global-scale systems. I optimize complex processes by
         day and sneak in dad jokes by standup - just to keep things agile and fun.</p>
-</section>
-<section id="projects">
+</section> -->
+<!-- <section id="projects">
     <h2>Projects</h2>
-    <!--
+    
     <p><strong>Project One:</strong> Description of your project with a link <a href="#">here</a>.</p>
     <p><strong>Project Two:</strong> Description of another project with a link <a href="#">here</a>.</p>
-    -->
+   
     <p style="font-style:italic;opacity:0.8;">Coming soon...</p>
-</section>
+</section> -->
 
 {{ end }}

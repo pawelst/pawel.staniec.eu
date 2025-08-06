@@ -1,0 +1,2 @@
+## About Me
+Application Engineer turned Chief Technology Officer, SCRUM Certified Master, and software architect with 20+ years of experience administering, designing, developing, and securing global-scale systems. I optimize complex processes by day and sneak in dad jokes by standup - just to keep things agile and fun.
