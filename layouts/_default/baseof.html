@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Site.Language.Lang }}">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paweł | Personal Landing Page</title>
-  <!-- Inter Font -->
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+  <meta name="description"
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+  {{ block "head" . }}{{ end }}
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-color: #121212;
       --text-color: #e0e0e0;
-      --accent-color: rgb(16, 185, 129); /* Custom emerald accent */
+      --accent-color: rgb(16, 185, 129);
+      /* Custom emerald accent */
       --font-family: 'Inter', sans-serif;
     }
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -30,34 +41,41 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+
     a {
       color: var(--accent-color);
       text-decoration: none;
       transition: opacity 0.2s ease;
       font-weight: 600;
     }
+
     a:hover {
       opacity: 0.8;
     }
+
     header {
       display: flex;
       justify-content: center;
       padding: 2rem 1rem;
     }
+
     nav a {
       margin: 0 1rem;
       font-size: 1rem;
     }
+
     main {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
     h1 {
       font-size: 3rem;
       text-align: center;
       margin-bottom: 0.5rem;
     }
+
     h2 {
       font-size: 2rem;
       margin-top: 2rem;
@@ -66,18 +84,22 @@
       display: inline-block;
       padding-bottom: 0.25rem;
     }
+
     p {
       margin-bottom: 1rem;
     }
+
     .social {
       display: flex;
       justify-content: center;
       margin-top: 1rem;
       gap: 1rem;
     }
+
     .social a {
       font-size: 1rem;
     }
+
     footer {
       text-align: center;
       margin: 4rem 0 2rem;
@@ -86,38 +108,23 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
     </nav>
   </header>
+
   <main>
-    <section id="hero">
-      <h1>Paweł Staniec</h1>
-      <p style="text-align:center;font-size:1.25rem;opacity:0.8;">Hi there! I'm a software engineer passionate about building performant, accessible web experiences.</p>
-      <div class="social">
-        <a href="https://github.com/pawelst" aria-label="GitHub" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-      </div>
-    </section>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Application Engineer turned Chief Technology Officer, SCRUM Certified Master, and software architect with 15+ years of experience designing, developing, and securing global-scale systems. I optimize complex processes by day and sneak in dad jokes by standup—just to keep things agile and fun.</p>
-    </section>
-    <section id="projects">
-      <h2>Projects</h2>
-      <!--
-      <p><strong>Project One:</strong> Description of your project with a link <a href="#">here</a>.</p>
-      <p><strong>Project Two:</strong> Description of another project with a link <a href="#">here</a>.</p>
-      -->
-      <p style="font-style:italic;opacity:0.8;">Coming soon...</p>
-    </section>
-    
+    {{ block "main" . }}{{ end }}
   </main>
+
   <footer>
-    &copy; 2025 Paweł Staniec. All rights reserved.
+    <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
   </footer>
 </body>
+
 </html>
